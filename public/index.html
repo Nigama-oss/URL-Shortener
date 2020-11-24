@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>URL Shortener</title>
+    <meta name="viewport" content="width=device-width, initial-scale, initial-scale=1">
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/darkly/bulmaswatch.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="hero is-dark">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              URL Shortener
+            </h1>
+            <h2 class="subtitle">
+              No one likes messy links.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section>
+         <main id="app">
+             <form @submit.prevent="createURL()">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label">URL</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <p class="control">
+                          <input v-model="url" class="input is-medium" type="text" placeholder="http://example.com" required>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label">Name</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <p class="control">
+                          <input v-model="name" class="input is-medium" type="text" placeholder="name-your-tag" required>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn">
+                    <button type="submit" class="button is-light">Shorten</button>
+                  </div>
+             </form>
+         </main> 
+      </section>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.cjs.js"></script>
+     <script src="main.js"></script>
+</body>
+</html>
+
