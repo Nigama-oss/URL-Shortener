@@ -17,14 +17,14 @@ function find(name) {
     });
   }
   
-  async function create(almost) {
-    const result = Joi.validate(almost, schema);
+  async function create(shortURL) {
+    const result = Joi.validate(shortURL, schema);
     if (result.error === null) {
       const url = await urls.findOne({
-        name: almost.name
+        name: shortURL.name
       });
       if (!url) {
-        return urls.insert(almost);
+        return urls.insert(shortURL);
       } else {
         return Promise.reject({
           isJoi: true,

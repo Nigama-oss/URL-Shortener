@@ -25,7 +25,10 @@
 
       <section>
          <main id="app">
-             <form @submit.prevent="createURL()">
+             <form v-if="!success" @submit.prevent="createURL()">
+              <div v-if="error" class="notification is-danger">
+                {{ error }}
+              </div>
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
                       <label class="label">URL</label>
@@ -40,7 +43,7 @@
                   </div>
                   <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                      <label class="label">Name</label>
+                      <label class="label">Tag</label>
                     </div>
                     <div class="field-body">
                       <div class="field">
@@ -54,6 +57,7 @@
                     <button type="submit" class="button is-light">Shorten</button>
                   </div>
              </form>
+             <h1 v-if="success" class="title is-4" style="text-align: center"><a href="'/' + name" target="_blank">{{ name }}</a></h1>
          </main> 
       </section>
 

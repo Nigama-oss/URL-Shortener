@@ -10,6 +10,15 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(express.static('./public'));
 
+app.get('/:name', (req, res) => {
+    const short = await urls.find(req.params.name);
+    if (short) {
+        res.redirect(short.url);
+    } else {
+        res.redirect(`/404.html?name=${req.params.name}`);
+    }
+})
+
 app.post('/api/shortener', async(req, res) => {
     const puny = await urls.find(req.params.name);
   if (shortener) {
